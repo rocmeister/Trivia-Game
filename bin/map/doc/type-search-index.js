@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"map","l":"DefaultAnnotationAttributes"},{"p":"map","l":"DummyGlobeAnnotation"},{"p":"map","l":"IRightClickAction"},{"p":"map","l":"MapLayer"},{"p":"map","l":"MapPanel"},{"p":"map","l":"PositionWithAltitude"},{"p":"map","l":"ToggleAnnotation"}]

@@ -1,0 +1,67 @@
+package common;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.UUID;
+
+import common.message.GroupDataPacket;
+import provided.datapacket.*;
+
+/**
+ * IChatroom is chat rooms for both in-game teams and outside-game chat groups.
+ * It is used for both inter-team and intra-team communications. 
+ * It keeps track of the IMember stubs of the all the members in a chat group
+ * and defines how communication with those members can occur. 
+ *
+ * Each instance of IChatroom needs a unique id.
+ * 
+ * IMember stubs are added to the chatroom via a "Join" message (a known message type). Similarly,
+ * IMember stubs can leave a chatroom using a "Leave" message (another known message type). So,
+ * we don't need add() or leave() methods in this interface.
+ */
+public interface IGroup extends Serializable {
+	/**
+	 * Accessor method for the unique id of the chatroom.
+	 * 
+	 * Use the UUID to compare chatrooms.
+	 * 
+	 * @return The chatroom UID
+	 */
+	public UUID getUUID();
+
+	/**
+	 * Delegates to the transferData() method on each IMember stub to blast data out
+	 * to everyone in the chatroom.
+	 * 
+	 * @param dp The datapacket to receive
+	 */
+	public void sendMsgToAll(GroupDataPacket<? extends IDataPacketData> dp);
+
+	/**
+	 * Add the member to the current chatroom.
+	 * It is used to alter memberlist in the chatroom.
+	 * @param member  An IMember object to be added.
+	 */
+	public void addMember(IMember member);
+
+	/**
+	 * Removes the member from the current chatroom.
+	 * It is used to alter memberlist in the chatroom.
+	 * @param member An IMember object to be removed
+	 */
+	public void removeMember(IMember member);
+
+	/**
+	 * Accessor method for the IMember stubs that are known to be a part of the chatroom.
+	 *  
+	 *  @return the chatroom's member list
+	 */
+	public List<IMember> getMembers();
+
+	/**
+	 * Accessor method for the name of the chatroom
+	 * 
+	 * @return the chatroom's name
+	 */
+	public String getName();
+}

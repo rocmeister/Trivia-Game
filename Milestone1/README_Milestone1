@@ -1,0 +1,13 @@
+Instructions for how to connect to other users and display a map:
+
+Run the server controller, type in the other user's IP address, and click connect to connect to another user. To display and send a map, create a chatroom by typing in a room name and clicking create. Then press Send Unknown.
+
+Prose description of how our game will work, including typical game play with winning and losing:
+
+At the start of the game, teams can select a preset route they would like to take. The routes will be labelled with their difficulties. For instance, travelling through the “Amazon Jungle” route will be more difficult than travelling through the scenic “California Highway 1” route. More difficult routes will award more gold for each obstacle that the team overcomes at each checkpoint (typically well-known places). Each obstacle will consist of a guessing game consisting of correctly answering questions related to the location the team is at on the route. Points will be awarded to correct answers corresponding to how difficult the questions answered are. If a team does not answer a question correctly, the team will still move to the next checkpoint, but will not accrue points for completing the challenge at the current checkpoint. At the end after the teams have completed their routes, the team with the most points will win.
+
+A prose description of how your design will implement the required common API as well as any features specific to your implementation:
+
+Our design will implement the required common API by using server and client implementations (see UML diagrams for the client and server for reference). Our server and client will communicate through a connection stub initialized by the server, and the server will send the client a map as an unknown message type so that the game player will be able to see where they are on the map. Also the server will maintain the state of the game, including how much gold the teams have accumulated so far. The server will also record the locations of the teams, as well as ensure that the teams take turns moving along their journeys. The client will process messages from the server, as well as enable team members to communicate with each other in chatrooms.
+
+
